@@ -184,18 +184,17 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Controllers\FollowingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DTOs\AttendanceDto.cs" />
+    <Compile Include="DTOs\FollowingDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202203140209286_InitialModel.cs" />
     <Compile Include="Migrations\202203140209286_InitialModel.Designer.cs">
       <DependentUpon>202203140209286_InitialModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203140242262_CreateTableCourse.cs" />
-    <Compile Include="Migrations\202203140242262_CreateTableCourse.Designer.cs">
-      <DependentUpon>202203140242262_CreateTableCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202203140243354_PopulateCategoryTable.cs" />
     <Compile Include="Migrations\202203140243354_PopulateCategoryTable.Designer.cs">
@@ -209,6 +208,14 @@
     <Compile Include="Migrations\202203261235354_AddAttendance.Designer.cs">
       <DependentUpon>202203261235354_AddAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204020723505_CreateTableCourse.cs" />
+    <Compile Include="Migrations\202204020723505_CreateTableCourse.Designer.cs">
+      <DependentUpon>202204020723505_CreateTableCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204020918554_AddFollowingsTable.cs" />
+    <Compile Include="Migrations\202204020918554_AddFollowingsTable.Designer.cs">
+      <DependentUpon>202204020918554_AddFollowingsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -216,9 +223,11 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CoursesViewModel.cs" />
     <Compile Include="ViewModels\CourseViewModel.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
@@ -280,9 +289,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Attending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Followings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -301,9 +312,6 @@
     <EmbeddedResource Include="Migrations\202203140209286_InitialModel.resx">
       <DependentUpon>202203140209286_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203140242262_CreateTableCourse.resx">
-      <DependentUpon>202203140242262_CreateTableCourse.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203140243354_PopulateCategoryTable.resx">
       <DependentUpon>202203140243354_PopulateCategoryTable.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203261235354_AddAttendance.resx">
       <DependentUpon>202203261235354_AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204020723505_CreateTableCourse.resx">
+      <DependentUpon>202204020723505_CreateTableCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204020918554_AddFollowingsTable.resx">
+      <DependentUpon>202204020918554_AddFollowingsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
